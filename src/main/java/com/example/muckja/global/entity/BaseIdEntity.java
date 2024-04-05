@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Getter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
 public class BaseIdEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
