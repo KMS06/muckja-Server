@@ -3,6 +3,7 @@ package com.example.muckja.domain.user.domain;
 
 import com.example.muckja.domain.review.domain.Review;
 import com.example.muckja.global.entity.BaseIdEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,4 +27,12 @@ public class User extends BaseIdEntity {
 
     @OneToMany(mappedBy = "user")
     private List<Review> review;
+
+    @Builder
+    public User(String email, String password, String name, List<Review> review){
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.review = review;
+    }
 }
