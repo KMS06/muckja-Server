@@ -12,7 +12,6 @@ import java.util.Date;
 public class JwtTokenProvider {
 
     private static final String ACCESS_KEY = "access";
-    private static final String REFRESH_KEY = "refresh";
 
     private final JwtProperties jwtProperties;
 
