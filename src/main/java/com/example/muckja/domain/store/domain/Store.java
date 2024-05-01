@@ -2,6 +2,7 @@ package com.example.muckja.domain.store.domain;
 
 import com.example.muckja.domain.review.domain.Review;
 import com.example.muckja.global.entity.BaseIdEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -40,4 +41,17 @@ public class Store extends BaseIdEntity {
 
     @OneToMany(mappedBy = "store")
     private List<Review> review;
+
+    @Builder
+    public Store(String name, String address, BigDecimal avg, String menu, BigDecimal taste, BigDecimal amount, BigDecimal kindness, String site, List<Review> review){
+        this.name = name;
+        this.address = address;
+        this.avg = avg;
+        this.menu = menu;
+        this.taste = taste;
+        this.amount = amount;
+        this.kindness = kindness;
+        this.site = site;
+        this.review = review;
+    }
 }
