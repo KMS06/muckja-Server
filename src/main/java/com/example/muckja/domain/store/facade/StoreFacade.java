@@ -17,5 +17,4 @@ public class StoreFacade {
         if(store.isPresent())
             throw StoreExistException.EXCEPTION;
     }
-
 }

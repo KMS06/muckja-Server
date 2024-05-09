@@ -3,6 +3,7 @@ package com.example.muckja.domain.review.domain;
 import com.example.muckja.domain.store.domain.Store;
 import com.example.muckja.domain.user.domain.User;
 import com.example.muckja.global.entity.BaseIdEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,16 +25,27 @@ public class Review extends BaseIdEntity {
     private Store store;
 
     @Column(nullable = false)
-    private Integer rating;
+    private int rating;
 
     private String content;
 
     @Column(nullable = false)
-    private Integer taste;
+    private int taste;
 
     @Column(nullable = false)
-    private Integer amount;
+    private int amount;
 
     @Column(nullable = false)
-    private Integer kindness;
+    private int kindness;
+
+    @Builder
+    public Review(User user, Store store, int rating, String content, int taste, int amount, int kindness ) {
+        this.user = user;
+        this.store = store;
+        this.rating = rating;
+        this.content = content;
+        this.taste = taste;
+        this.amount = amount;
+        this.kindness = kindness;
+    }
 }

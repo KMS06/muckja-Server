@@ -13,9 +13,11 @@ public enum ErrorCode {
     PASSWORD_MISMATCH(401, "Password Mismatch"),
 
     USER_NOT_FOUND(404, "User Not Found"),
+    STORE_NOT_FOUND(404, "Store Not Found"),
 
     USER_EXIST(409, "User Exist"),
     STORE_EXIST(409,"Store Exist"),
+    REVIEW_EXIST(409, "Review Exist"),
 
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");
 
