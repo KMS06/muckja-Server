@@ -12,8 +12,8 @@ import java.util.Optional;
 @Component
 public class ReviewFacade {
     private final ReviewRepository reviewRepository;
-    public void checkReviewExist(Long userId){
-        Optional<Review> review = reviewRepository.findByUserId(userId);
+    public void checkReviewExist(Long userId, Long storeId){
+        Optional<Review> review = reviewRepository.findByUserIdAndStoreId(userId, storeId);
         if(review.isPresent()){
             throw ReviewExistException.EXCEPTION;
         }

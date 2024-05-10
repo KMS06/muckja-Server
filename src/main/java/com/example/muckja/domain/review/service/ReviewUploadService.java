@@ -27,7 +27,7 @@ public class ReviewUploadService {
         Store store = storerepository.findById(request.getStoreId())
                 .orElseThrow(() -> StoreNotFoundException.EXCEPTION);
 
-        reviewFacade.checkReviewExist(user.getId());
+        reviewFacade.checkReviewExist(user.getId(), store.getId());
 
         reviewRepository.save(Review.builder()
                 .user(user)
