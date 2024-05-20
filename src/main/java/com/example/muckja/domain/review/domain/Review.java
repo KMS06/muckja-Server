@@ -25,21 +25,21 @@ public class Review extends BaseIdEntity {
     private Store store;
 
     @Column(nullable = false)
-    private int rating;
+    private Integer rating;
 
     private String content;
 
     @Column(nullable = false)
-    private int taste;
+    private Integer taste;
 
     @Column(nullable = false)
-    private int amount;
+    private Integer amount;
 
     @Column(nullable = false)
-    private int kindness;
+    private Integer kindness;
 
     @Builder
-    public Review(User user, Store store, int rating, String content, int taste, int amount, int kindness ) {
+    public Review(User user, Store store, Integer rating, String content, Integer taste, Integer amount, Integer kindness ) {
         this.user = user;
         this.store = store;
         this.rating = rating;

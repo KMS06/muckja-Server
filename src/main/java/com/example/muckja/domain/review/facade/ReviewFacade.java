@@ -6,6 +6,7 @@ import com.example.muckja.domain.review.domain.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -17,5 +18,10 @@ public class ReviewFacade {
         if(review.isPresent()){
             throw ReviewExistException.EXCEPTION;
         }
+    }
+
+    public List<Review> findByStoreId(Long storeId){
+        List<Review> reviewList = reviewRepository.findByStoreId(storeId);
+        return reviewList;
     }
 }
