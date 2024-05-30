@@ -20,6 +20,6 @@ public class StoreFacade {
     }
 
     public List<Store> findByName(String name){
-        return storeRepository.findByNameContaining(name);
+        return storeRepository.findByNameContainingOrderByAvg(name);
     }
 }

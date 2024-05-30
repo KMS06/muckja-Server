@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface StoreRepository extends JpaRepository<Store, Long> {
     Optional<Store> findByNameAndAddress(String name, String address);
 
-    List<Store> findByNameContaining(String name);
+    List<Store> findByNameContainingOrderByAvg(String name);
 }
