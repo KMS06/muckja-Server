@@ -6,6 +6,7 @@ import com.example.muckja.domain.store.exception.StoreExistException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -16,5 +17,9 @@ public class StoreFacade {
         Optional<Store> store = storeRepository.findByNameAndAddress(name,address);
         if(store.isPresent())
             throw StoreExistException.EXCEPTION;
+    }
+
+    public List<Store> findByName(String name){
+        return storeRepository.findByNameContaining(name);
     }
 }
