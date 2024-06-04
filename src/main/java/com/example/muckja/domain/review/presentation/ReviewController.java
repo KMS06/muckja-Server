@@ -4,6 +4,7 @@ import com.example.muckja.domain.review.domain.Review;
 import com.example.muckja.domain.review.presentation.dto.request.ReviewUploadRequest;
 import com.example.muckja.domain.review.presentation.dto.response.QueryReviewResponse;
 import com.example.muckja.domain.review.service.QueryReviewService;
+import com.example.muckja.domain.review.service.ReviewDeleteService;
 import com.example.muckja.domain.review.service.ReviewUploadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import java.util.List;
 public class ReviewController {
     private final ReviewUploadService reviewUploadService;
     private final QueryReviewService queryReviewService;
+    private final ReviewDeleteService reviewDeleteService;
 
     @PostMapping("/upload")
     @ResponseStatus(HttpStatus.CREATED)
@@ -29,5 +31,11 @@ public class ReviewController {
     @ResponseStatus(HttpStatus.OK)
     public List<QueryReviewResponse> queryReview(@PathVariable("id") Long storeId){
         return queryReviewService.execute(storeId);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteReview(@PathVariable("id") Long reviewId){
+        reviewDeleteService.execute(reviewId);
     }
 }

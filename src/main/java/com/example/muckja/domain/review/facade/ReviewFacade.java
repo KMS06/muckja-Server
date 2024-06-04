@@ -1,8 +1,9 @@
 package com.example.muckja.domain.review.facade;
 
 import com.example.muckja.domain.review.domain.Review;
-import com.example.muckja.domain.review.domain.exception.ReviewExistException;
+import com.example.muckja.domain.review.exception.ReviewExistException;
 import com.example.muckja.domain.review.domain.repository.ReviewRepository;
+import com.example.muckja.domain.review.exception.ReviewNotFoundException;
 import com.example.muckja.domain.store.domain.Store;
 import com.example.muckja.domain.store.domain.repository.StoreRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,11 @@ public class ReviewFacade {
         if(review.isPresent()){
             throw ReviewExistException.EXCEPTION;
         }
+    }
+
+    public Review findById(Long reviewId){
+        return reviewRepository.findById(reviewId)
+                .orElseThrow(() -> ReviewNotFoundException.EXCEPTION);
     }
 
     public List<Review> findByStoreId(Long storeId){

@@ -14,6 +14,7 @@ public enum ErrorCode {
 
     USER_NOT_FOUND(404, "User Not Found"),
     STORE_NOT_FOUND(404, "Store Not Found"),
+    REVIEW_NOT_FOUND(404, "Review Not Found"),
 
     USER_EXIST(409, "User Exist"),
     STORE_EXIST(409,"Store Exist"),

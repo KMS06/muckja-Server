@@ -1,4 +1,4 @@
-package com.example.muckja.domain.review.domain.exception;
+package com.example.muckja.domain.review.exception;
 
 import com.example.muckja.global.error.CustomException;
 import com.example.muckja.global.error.ErrorCode;
