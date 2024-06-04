@@ -54,4 +54,11 @@ public class Store extends BaseIdEntity {
         this.site = site;
         this.review = review;
     }
+
+    public void update(BigDecimal avg, BigDecimal taste, BigDecimal amount, BigDecimal kindness){
+        this.avg = avg;
+        this.taste = taste;
+        this.amount = amount;
+        this.kindness = kindness;
+    }
 }

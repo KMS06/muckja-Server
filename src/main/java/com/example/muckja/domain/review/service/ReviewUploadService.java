@@ -38,5 +38,7 @@ public class ReviewUploadService {
                 .amount(request.getAmount())
                 .kindness(request.getKindness())
                 .build());
+
+        reviewFacade.storeRating(store);
     }
 }
