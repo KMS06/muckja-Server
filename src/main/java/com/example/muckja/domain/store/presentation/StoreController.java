@@ -3,6 +3,7 @@ package com.example.muckja.domain.store.presentation;
 import com.example.muckja.domain.store.presentation.dto.request.StoreUploadRequest;
 import com.example.muckja.domain.store.presentation.dto.response.QueryStoreResponse;
 import com.example.muckja.domain.store.service.QueryStoreService;
+import com.example.muckja.domain.store.service.StoreDeleteService;
 import com.example.muckja.domain.store.service.StoreUploadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 public class StoreController {
     private final StoreUploadService storeUploadService;
     private final QueryStoreService queryStoreService;
+    private final StoreDeleteService storeDeleteService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/upload")
@@ -28,5 +30,11 @@ public class StoreController {
     @GetMapping
     public List<QueryStoreResponse> queryStore(@RequestParam String name){
         return queryStoreService.execute(name);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void deleteStore(@PathVariable("id") Long storeId){
+        storeDeleteService.execute(storeId);
     }
 }

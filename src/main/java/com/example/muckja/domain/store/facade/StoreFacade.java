@@ -3,6 +3,7 @@ package com.example.muckja.domain.store.facade;
 import com.example.muckja.domain.store.domain.Store;
 import com.example.muckja.domain.store.domain.repository.StoreRepository;
 import com.example.muckja.domain.store.exception.StoreExistException;
+import com.example.muckja.domain.store.exception.StoreNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,5 +22,10 @@ public class StoreFacade {
 
     public List<Store> findByName(String name){
         return storeRepository.findByNameContainingOrderByAvg(name);
+    }
+
+    public Store findById(Long storeId){
+        return storeRepository.findById(storeId)
+                .orElseThrow(() -> StoreNotFoundException.EXCEPTION);
     }
 }
