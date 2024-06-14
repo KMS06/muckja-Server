@@ -1,7 +1,7 @@
 package com.example.muckja.domain.review.service;
 
 import com.example.muckja.domain.review.facade.ReviewFacade;
-import com.example.muckja.domain.review.presentation.dto.response.QueryReviewResponse;
+import com.example.muckja.domain.review.presentation.dto.response.ReviewResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,9 +14,9 @@ public class QueryReviewService {
     private final ReviewFacade reviewFacade;
 
     @Transactional
-    public List<QueryReviewResponse> execute(Long storeId){
-        List<QueryReviewResponse> reviewList = reviewFacade.findByStoreId(storeId).stream()
-                .map(QueryReviewResponse::from)
+    public List<ReviewResponse> execute(Long storeId){
+        List<ReviewResponse> reviewList = reviewFacade.findByStoreId(storeId).stream()
+                .map(ReviewResponse::from)
                 .toList();
 
         return reviewList;

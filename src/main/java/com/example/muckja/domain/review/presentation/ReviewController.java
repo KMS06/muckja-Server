@@ -1,8 +1,7 @@
 package com.example.muckja.domain.review.presentation;
 
-import com.example.muckja.domain.review.domain.Review;
 import com.example.muckja.domain.review.presentation.dto.request.ReviewUploadRequest;
-import com.example.muckja.domain.review.presentation.dto.response.QueryReviewResponse;
+import com.example.muckja.domain.review.presentation.dto.response.ReviewResponse;
 import com.example.muckja.domain.review.service.QueryReviewService;
 import com.example.muckja.domain.review.service.ReviewDeleteService;
 import com.example.muckja.domain.review.service.ReviewUploadService;
@@ -29,7 +28,7 @@ public class ReviewController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<QueryReviewResponse> queryReview(@PathVariable("id") Long storeId){
+    public List<ReviewResponse> queryReview(@PathVariable("id") Long storeId){
         return queryReviewService.execute(storeId);
     }
 
