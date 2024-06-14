@@ -7,6 +7,8 @@ import lombok.Getter;
 @Getter
 @Builder
 public class ReviewResponse {
+    private final Long id;
+
     private final Integer rating;
 
     private final String content;
@@ -20,6 +22,7 @@ public class ReviewResponse {
 
     public static ReviewResponse from(Review review){
         return ReviewResponse.builder()
+                .id(review.getId())
                 .rating(review.getRating())
                 .content(review.getContent())
                 .taste(review.getTaste())
